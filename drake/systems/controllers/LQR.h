@@ -2,6 +2,7 @@
 #define DRAKE_LQR_H
 
 #include "drake/core/Core.h"
+#include "drake/core/logging.h"
 #include "drake/systems/LinearSystem.h"
 #include "drake/util/drakeGradientUtil.h"
 #include "drake/util/drakeUtil.h"
@@ -39,8 +40,7 @@ timeInvariantLQR(const System& sys,
   Eigen::MatrixXd K(num_inputs, num_states), S(num_states, num_states);
   lqr(A, B, Q, R, K, S);
 
-  //    cout << "K = " << K << endl;
-  //    cout << "S = " << S << endl;
+  SPDLOG_TRACE(log(), "K = {} S = {}", K, S);
 
   // todo: return the linear system with the affine transform.  But for now,
   // just give the affine controller:
