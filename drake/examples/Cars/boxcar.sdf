@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+
+<model name="boxcar">
+  <pose>0 0 0 0 0 0</pose>
+
+  <link name="outer_wall">
+    <visual name="1">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <box>
+          <size>1.0 1.0 1.0</size>
+        </box>
+      </geometry>
+    </visual>
+  </link>
+
+</model>
+</sdf>
