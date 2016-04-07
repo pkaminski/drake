@@ -216,7 +216,7 @@ RigidBodySystem::OutputVector<double> RigidBodySystem::output(const double& t,
   assert(getNumInputs() == u.size());
 
   y.segment(0, getNumStates()) << x;
-  int index=getNumStates();
+  int index = getNumStates();
   for (const auto& s : sensors) {
     y.segment(index, s->getNumOutputs()) = s->output(t, kinsol, u);
     index+=s->getNumOutputs();
