@@ -65,8 +65,8 @@ RigidBodySystem::StateVector<double> RigidBodySystem::dynamics(
   VectorXd C = tree->dynamicsBiasTerm(kinsol, f_ext);
   if (num_actuators > 0) C -= tree->B * u.topRows(num_actuators);
 
-  {  // loop through rigid body force elements
-
+  // loop through rigid body force elements
+  {
     // todo: distinguish between AppliedForce and ConstraintForce
 
     size_t u_index = 0;
@@ -78,7 +78,8 @@ RigidBodySystem::StateVector<double> RigidBodySystem::dynamics(
     }
   }
 
-  {  // apply joint limit forces
+  // apply joint limit forces
+  {
     for (auto const& b : tree->bodies) {
       if (!b->hasParent()) continue;
       auto const& joint = b->getJoint();
@@ -101,7 +102,8 @@ RigidBodySystem::StateVector<double> RigidBodySystem::dynamics(
     }
   }
 
-  {  // apply contact forces
+  // apply contact forces
+  {
     VectorXd phi;
     Matrix3Xd normal, xA, xB;
     vector<int> bodyA_idx, bodyB_idx;
