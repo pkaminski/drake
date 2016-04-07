@@ -539,11 +539,11 @@ Eigen::VectorXd RigidBodyDepthSensor::output(const double &t,
 
   Vector3d origin = sys.getRigidBodyTree()->transformPoints(rigid_body_state,
                                                              Vector3d::Zero(),
-                                                             frame->frame_index,0);
+                                                             frame->frame_index, 0);
 
   auto raycast_endpoints_world = sys.getRigidBodyTree()->transformPoints(rigid_body_state,
                                                                           raycast_endpoints,
-                                                                          frame->frame_index,0);
+                                                                          frame->frame_index, 0);
 
   sys.getRigidBodyTree()->collisionRaycast(rigid_body_state, origin, raycast_endpoints_world, distances);
 
