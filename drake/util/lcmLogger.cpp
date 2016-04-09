@@ -169,6 +169,7 @@ static void mdlTerminate(SimStruct *S) {
                           MEX-file? */
 #include "simulink.c"  /* MEX-file interface mechanism */
 #else
+// NOLINTNEXTLINE(build/include)
 #include "cg_sfun.h" /* Code generation registration
                              function */
 #endif
